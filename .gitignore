@@ -1,0 +1,11 @@
+# Временные файлы
+*.zip
+*.tmp
+
+# Папка zapret (скачивается автоматически)
+zapret/
+version.txt
+choice.txt
+
+# Логи
+*.log
