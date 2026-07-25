@@ -58,7 +58,7 @@ echo.    *!L1!*
 echo.    *                                                 *
 echo.    *   [2]  Выбрать конфигурацию                     *
 echo.    *                                                 *
-echo.    *   [3]  Настроить [zapret]                       *
+echo.    *   [3]  Настроить [zapret]                        *
 echo.    *                                                 *
 echo.    *!L4!*
 echo.    *                                                 *
@@ -128,9 +128,7 @@ echo.    Запуск: !SELECTED!
 echo.
 echo.    ***************************************************
 echo.
-ren "%ZAPRET_DIR%\winws.exe" "svchost.exe" >nul 2>&1
 call "!SELECTED!"
-ren "%ZAPRET_DIR%\svchost.exe" "winws.exe" >nul 2>&1
 pause
 goto :menu
 
@@ -187,9 +185,7 @@ echo.    Сохранено: !SELECTED!
 echo.
 echo.    ***************************************************
 echo.
-ren "%ZAPRET_DIR%\winws.exe" "svchost.exe" >nul 2>&1
 call "!SELECTED!"
-ren "%ZAPRET_DIR%\svchost.exe" "winws.exe" >nul 2>&1
 pause
 goto :menu
 
@@ -249,6 +245,13 @@ echo.    Сохранено: !SELECTED!
 echo.
 echo.    ***************************************************
 echo.
+
+echo.
+echo.    ---------------------------------------------------
+echo.    ВАЖНО: Теперь откройте [3] Настроить [zapret]
+echo.    и выберите "Update IPSet List" для установки WireSock
+echo.    ---------------------------------------------------
+echo.
 pause
 goto :menu
 
@@ -272,6 +275,11 @@ echo.    Запуск service.bat...
 echo.
 echo.    ***************************************************
 echo.
+echo.    ---------------------------------------------------
+echo.    Выберите "Update IPSet List" для установки WireSock
+echo.    WireSock заменяет winws.exe и работает с EAC
+echo.    ---------------------------------------------------
+echo.
 call "%ZAPRET_DIR%\service.bat"
 echo.
 echo.    ***************************************************
@@ -289,7 +297,7 @@ echo.    *                                                 *
 echo.    ***************************************************
 echo.
 echo.
-echo.    Zapret Rust Launcher v1.0
+echo.    Zapret Rust Launcher v1.1
 echo.
 echo.
 echo.    ***************************************************
@@ -297,7 +305,8 @@ echo.
 echo.    ВАЖНО:
 echo.
 echo.
-echo.    Запускать перед открытие игры
+echo.    Запускать перед открытием игры.
+echo.    После установки настройте WireSock через service.bat
 echo.
 echo.
 echo.    ***************************************************
@@ -310,7 +319,8 @@ echo.    процесс winws.exe (Zapret), так как считает его метод
 echo.    перехвата трафика (драйвер WinDivert) уязвимостью или читом.
 echo.
 echo.
-echo.    А это программа помогает это обходить.
+echo.    Решение: WireSock вместо WinDivert.
+echo.    Откройте [3] Настроить и выберите "Update IPSet List"
 echo.
 echo.
 echo.    ***************************************************
@@ -346,7 +356,7 @@ echo.    ***************************************************
 echo.    *                                                 *
 echo.    * До новых встреч!                                *
 echo.    *                                                 *
-echo.    * Удачной игры в Rust!                            *
+echo.    * Удачной игры в Rust!                             *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
