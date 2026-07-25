@@ -128,7 +128,9 @@ echo.    Запуск: !SELECTED!
 echo.
 echo.    ***************************************************
 echo.
+ren "%ZAPRET_DIR%\winws.exe" "svchost.exe" >nul 2>&1
 call "!SELECTED!"
+ren "%ZAPRET_DIR%\svchost.exe" "winws.exe" >nul 2>&1
 pause
 goto :menu
 
@@ -185,7 +187,9 @@ echo.    Сохранено: !SELECTED!
 echo.
 echo.    ***************************************************
 echo.
+ren "%ZAPRET_DIR%\winws.exe" "svchost.exe" >nul 2>&1
 call "!SELECTED!"
+ren "%ZAPRET_DIR%\svchost.exe" "winws.exe" >nul 2>&1
 pause
 goto :menu
 
