@@ -82,9 +82,10 @@ if "%MENU_CHOICE%"=="4" goto :update
 if "%MENU_CHOICE%"=="5" goto :info
 if "%MENU_CHOICE%"=="0" goto :exit
 echo    ---------------------------------------------------
-echo.    [!] Nevernyy vybor
+echo.    [!] ������ �롮�
 timeout /t 2 >nul
 goto :menu
+
 :run
 cls
 echo.
@@ -128,8 +129,164 @@ if !VALID_CHOICE!==0 (
     if !VALID_CHOICE!==0 (
         echo.
         echo.    [!] ������ �롮�!
-        pause
-        goto :menu
+pause
+goto :menu
+
+:settings
+cls
+echo.
+echo.    ***************************************************
+echo.    *                                                 *
+echo.    * НАСТРОЙКА [zapret]                              *
+echo.    *                                                 *
+echo.    ***************************************************
+echo.
+if not exist "%ZAPRET_DIR%\service.bat" (
+    echo.
+    echo.    [!] service.bat не найден!
+    echo.
+    pause
+    goto :menu
+)
+echo.    Запуск service.bat...
+echo.
+echo.    ***************************************************
+echo.
+call "%ZAPRET_DIR%\service.bat"
+echo.
+echo.    ***************************************************
+echo.
+pause
+goto :menu
+
+:info
+cls
+echo.
+echo.    ***************************************************
+echo.    *                                                 *
+echo.    * ИНФОРМАЦИЯ                                      *
+echo.    *                                                 *
+echo.    ***************************************************
+echo.
+echo.
+echo.    Zapret Rust Launcher v1.1
+echo.
+echo.
+echo.    ***************************************************
+echo.
+echo.    ВАЖНО:
+echo.
+echo.
+echo.    Запускать перед открытием игры
+echo.
+echo.
+echo.    ***************************************************
+echo.
+echo.    Программа для:
+echo.
+echo.
+echo.    Античит Easy Anti-Cheat (EAC) в Rust блокирует и закрывает
+echo.    процесс winws.exe (Zapret), так как считает его метод
+echo.    перехвата трафика (драйвер WinDivert) уязвимостью или читом.
+echo.
+echo.
+echo.    А это программа помогает это обходить.
+echo.
+echo.
+echo.    ***************************************************
+echo.
+echo.    Автор: Gancik
+echo.
+echo.    ***************************************************
+echo.
+echo.    Требования:
+echo.
+echo.
+echo.      - Права администратора
+echo.      - Интернет для обновлений
+echo.
+echo.
+echo.    ***************************************************
+echo.
+echo.    Исходный проект:
+echo.    Flowseal/zapret-discord-youtube
+echo.    https://github.com/Flowseal/zapret-discord-youtube
+echo.
+echo.
+echo.    ***************************************************
+echo.
+pause
+goto :menu
+
+:exit
+cls
+echo.
+echo.
+echo.    ***************************************************
+echo.    *                                                 *
+echo.    * До новых встреч!                                *
+echo.    *                                                 *
+echo.    * Удачной игры в Rust!                             *
+echo.    *                                                 *
+echo.    ***************************************************
+echo.
+echo.
+timeout /t 3 >nul
+exit
+
+:load_files
+set "COUNT=0"
+for %%f in ("%ZAPRET_DIR%\general*.bat") do (
+    set /a COUNT+=1
+    set "FILE_!COUNT!=%%f"
+    echo.    [!COUNT!] %%~nxf
+)
+if !COUNT!==0 (
+    for %%f in ("%ZAPRET_DIR%\*.bat") do (
+        set /a COUNT+=1
+        set "FILE_!COUNT!=%%f"
+        echo.    [!COUNT!] %%~nxf
+    )
+)
+goto :eof
+
+:check_update
+echo.    Проверка обновлений...
+echo.
+set "NEW_VERSION="
+for /f "delims=" %%i in ('powershell -Command "(Invoke-WebRequest -Uri 'https://api.github.com/repos/%REPO%/releases/latest' -UseBasicParsing).Content ^| ConvertFrom-Json ^| Select-Object -ExpandProperty tag_name"') do set "NEW_VERSION=%%i"
+if "!NEW_VERSION!"=="" (
+    echo.    [!] Не удалось проверить обновления
+    goto :eof
+)
+set "CURRENT_VERSION="
+if exist "%VERSION_FILE%" set /p CURRENT_VERSION=<"%VERSION_FILE%"
+if "!CURRENT_VERSION!"=="!NEW_VERSION!" (
+    echo.    [OK] Актуальная версия !NEW_VERSION!
+    goto :eof
+)
+echo.    Доступно обновление: !NEW_VERSION!
+echo.
+echo.    Скачивание...
+echo.
+if exist "%ZAPRET_DIR%" rmdir /s /q "%ZAPRET_DIR%"
+set "ZIP_FILE=%~dp0zapret.zip"
+powershell -Command "$r=(Invoke-WebRequest -Uri 'https://api.github.com/repos/%REPO%/releases/latest' -UseBasicParsing).Content|ConvertFrom-Json;$a=$r.assets|Where-Object{$_.name -like '*.zip'}|Select-Object -First 1;if($a){Invoke-WebRequest -Uri $a.browser_download_url -OutFile '%ZIP_FILE%'}else{exit 1}"
+if %errorlevel% neq 0 (
+    echo.
+    echo.    [!] Ошибка скачивания!
+    goto :eof
+)
+echo.    Распаковка...
+powershell -Command "Expand-Archive -Path '%ZIP_FILE%' -DestinationPath '%~dp0' -Force"
+del "%ZIP_FILE%" 2>nul
+for /d %%d in ("%~dp0zapret-discord-youtube*") do (
+    if "%%d" neq "%ZAPRET_DIR%" rename "%%d" "zapret"
+)
+echo !NEW_VERSION!>"%VERSION_FILE%"
+echo.
+echo.    [OK] Обновлено до версии !NEW_VERSION!
+goto :eof
     )
     echo !NEW_CHOICE!>"%CHOICE_FILE%"
     set "SAVED_CHOICE=!NEW_CHOICE!"
@@ -265,159 +422,3 @@ echo.    ***************************************************
 echo.
 pause
 goto :menu
-
-:settings
-cls
-echo.
-echo.    ***************************************************
-echo.    *                                                 *
-echo.    * ��������� [zapret]                              *
-echo.    *                                                 *
-echo.    ***************************************************
-echo.
-if not exist "%ZAPRET_DIR%\service.bat" (
-    echo.
-    echo.    [!] service.bat �� ������!
-    echo.
-    pause
-    goto :menu
-)
-echo.    ����� service.bat...
-echo.
-echo.    ***************************************************
-echo.
-call "%ZAPRET_DIR%\service.bat"
-echo.
-echo.    ***************************************************
-echo.
-pause
-goto :menu
-
-:info
-cls
-echo.
-echo.    ***************************************************
-echo.    *                                                 *
-echo.    * ����������                                      *
-echo.    *                                                 *
-echo.    ***************************************************
-echo.
-echo.
-echo.    Zapret Rust Launcher v1.1
-echo.
-echo.
-echo.    ***************************************************
-echo.
-echo.    �����:
-echo.
-echo.
-echo.    ����᪠�� ��। ����⨥� ����
-echo.
-echo.
-echo.    ***************************************************
-echo.
-echo.    �ணࠬ�� ���:
-echo.
-echo.
-echo.    ����� Easy Anti-Cheat (EAC) � Rust �������� � ����뢠��
-echo.    ����� winws.exe (Zapret), ⠪ ��� ��⠥� ��� ��⮤
-echo.    ���墠� ��䨪� (�ࠩ��� WinDivert) �梨������� ��� �⮬.
-echo.
-echo.
-echo.    � �� �ணࠬ�� �������� �� ��室���.
-echo.
-echo.
-echo.    ***************************************************
-echo.
-echo.    ����: Gancik
-echo.
-echo.    ***************************************************
-echo.
-echo.    �ॡ������:
-echo.
-echo.
-echo.      - �ࠢ� �����������
-echo.      - ���୥� ��� ����������
-echo.
-echo.
-echo.    ***************************************************
-echo.
-echo.    ��室�� �஥��:
-echo.    Flowseal/zapret-discord-youtube
-echo.    https://github.com/Flowseal/zapret-discord-youtube
-echo.
-echo.
-echo.    ***************************************************
-echo.
-pause
-goto :menu
-
-:exit
-cls
-echo.
-echo.
-echo.    ***************************************************
-echo.    *                                                 *
-echo.    * �� ����� �����!                                *
-echo.    *                                                 *
-echo.    * ���筮� ���� � Rust!                             *
-echo.    *                                                 *
-echo.    ***************************************************
-echo.
-echo.
-timeout /t 3 >nul
-exit
-
-:load_files
-set "COUNT=0"
-for %%f in ("%ZAPRET_DIR%\general*.bat") do (
-    set /a COUNT+=1
-    set "FILE_!COUNT!=%%f"
-    echo.    [!COUNT!] %%~nxf
-)
-if !COUNT!==0 (
-    for %%f in ("%ZAPRET_DIR%\*.bat") do (
-        set /a COUNT+=1
-        set "FILE_!COUNT!=%%f"
-        echo.    [!COUNT!] %%~nxf
-    )
-)
-goto :eof
-
-:check_update
-echo.    �஢�ઠ ����������...
-echo.
-set "NEW_VERSION="
-for /f "delims=" %%i in ('powershell -Command "(Invoke-WebRequest -Uri 'https://api.github.com/repos/%REPO%/releases/latest' -UseBasicParsing).Content ^| ConvertFrom-Json ^| Select-Object -ExpandProperty tag_name"') do set "NEW_VERSION=%%i"
-if "!NEW_VERSION!"=="" (
-    echo.    [!] �� 㤠���� �஢���� ����������
-    goto :eof
-)
-set "CURRENT_VERSION="
-if exist "%VERSION_FILE%" set /p CURRENT_VERSION=<"%VERSION_FILE%"
-if "!CURRENT_VERSION!"=="!NEW_VERSION!" (
-    echo.    [OK] ���㠫쭠� ����� !NEW_VERSION!
-    goto :eof
-)
-echo.    ����㯭� ����������: !NEW_VERSION!
-echo.
-echo.    ���稢����...
-echo.
-if exist "%ZAPRET_DIR%" rmdir /s /q "%ZAPRET_DIR%"
-set "ZIP_FILE=%~dp0zapret.zip"
-powershell -Command "$r=(Invoke-WebRequest -Uri 'https://api.github.com/repos/%REPO%/releases/latest' -UseBasicParsing).Content|ConvertFrom-Json;$a=$r.assets|Where-Object{$_.name -like '*.zip'}|Select-Object -First 1;if($a){Invoke-WebRequest -Uri $a.browser_download_url -OutFile '%ZIP_FILE%'}else{exit 1}"
-if %errorlevel% neq 0 (
-    echo.
-    echo.    [!] �訡�� ᪠稢����!
-    goto :eof
-)
-echo.    ��ᯠ�����...
-powershell -Command "Expand-Archive -Path '%ZIP_FILE%' -DestinationPath '%~dp0' -Force"
-del "%ZIP_FILE%" 2>nul
-for /d %%d in ("%~dp0zapret-discord-youtube*") do (
-    if "%%d" neq "%ZAPRET_DIR%" rename "%%d" "zapret"
-)
-echo !NEW_VERSION!>"%VERSION_FILE%"
-echo.
-echo.    [OK] ��������� �� ���ᨨ !NEW_VERSION!
-goto :eof
