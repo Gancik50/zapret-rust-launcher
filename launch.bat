@@ -275,11 +275,6 @@ echo.    Запуск service.bat...
 echo.
 echo.    ***************************************************
 echo.
-echo.    ---------------------------------------------------
-echo.    Выберите "Update IPSet List" для установки WireSock
-echo.    WireSock заменяет winws.exe и работает с EAC
-echo.    ---------------------------------------------------
-echo.
 call "%ZAPRET_DIR%\service.bat"
 echo.
 echo.    ***************************************************
@@ -420,5 +415,9 @@ goto :eof
 
 :stop_windivert
 sc stop windivert >nul 2>&1
+sc stop windivert >nul 2>&1
+sc stop windivert >nul 2>&1
+sc delete windivert >nul 2>&1
+sc delete windivert >nul 2>&1
 sc delete windivert >nul 2>&1
 goto :eof
