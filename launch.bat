@@ -130,7 +130,7 @@ echo.    Запуск: !SELECTED!
 echo.
 echo.    ***************************************************
 echo.
-start "" "!SELECTED!"
+start /min "" "!SELECTED!"
 timeout /t 5 >nul
 echo.    Остановка WinDivert...
 echo.
