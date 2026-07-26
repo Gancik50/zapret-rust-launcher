@@ -101,12 +101,18 @@ sc stop windivert
 sc stop windivert
 sc stop windivert
 echo.
+echo.    [OK] WinDivert остановлен
+echo.
+timeout /t 2 >nul
 echo.    Удаление WinDivert...
 echo.
 sc delete windivert
 sc delete windivert
 sc delete windivert
 echo.
+echo.    [OK] WinDivert удалён
+echo.
+timeout /t 2 >nul
 echo.    Загрузка конфигураций...
 echo.
 call :load_files
