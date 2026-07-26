@@ -67,6 +67,3 @@ launch.bat
 ## Credits
 
 - [zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube) - основной проект
-
-## Это мой 1 проект
-Не судите строго помогала мне нейросеть при создании.
