@@ -36,13 +36,13 @@ if "!HAS_ZAPRET!"=="0" (
     set "CURRENT_GEN="
 )
 
-set "L1=  [1]  ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩ"
-if defined CURRENT_GEN set "L1=  [1]  ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ [!CURRENT_GEN!]"
+set "L1=  [1]  á†Ø„·‚®‚Ï ß†Ø‡•‚"
+if defined CURRENT_GEN set "L1=  [1]  á†Ø„·‚®‚Ï [!CURRENT_GEN!]"
 set "L1= !L1!                                                 "
 set "L1=!L1:~0,49!"
 
-set "L4=  [4]  ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩ"
-if "!HAS_ZAPRET!"=="0" set "L4=  [4]  ÔøΩÔøΩ‚†≠ÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩ"
+set "L4=  [4]  é°≠Æ¢®‚Ï ß†Ø‡•‚"
+if "!HAS_ZAPRET!"=="0" set "L4=  [4]  ì·‚†≠Æ¢®‚Ï ß†Ø‡•‚"
 set "L4= !L4!                                                 "
 set "L4=!L4:~0,49!"
 
@@ -56,17 +56,17 @@ echo.    ***************************************************
 echo.    *                                                 *
 echo.    *!L1!*
 echo.    *                                                 *
-echo.    *   [2]  ÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩ‰®£ÔøΩÔøΩÔøΩÔøΩ                     *
+echo.    *   [2]  ÇÎ°‡†‚Ï ™Æ≠‰®£„‡†Ê®Ó                     *
 echo.    *                                                 *
-echo.    *   [3]  ÔøΩÔøΩÔøΩÔøΩ‡Æ®ÔøΩÔøΩ [zapret]                        *
+echo.    *   [3]  ç†·‚‡Æ®‚Ï [zapret]                        *
 echo.    *                                                 *
 echo.    *!L4!*
 echo.    *                                                 *
-echo.    *   [5]  ÔøΩÔøΩÔøΩ‡¨†ÔøΩÔøΩ                               *
+echo.    *   [5]  à≠‰Æ‡¨†Ê®Ô                               *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.    *                                                 *
-echo.    *   [0]  ÔøΩÔøΩÔøΩ                                    *
+echo.    *   [0]  ÇÎ©‚®                                    *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
@@ -82,7 +82,7 @@ if "%MENU_CHOICE%"=="4" goto :update
 if "%MENU_CHOICE%"=="5" goto :info
 if "%MENU_CHOICE%"=="0" goto :exit
 echo    ---------------------------------------------------
-echo.    [!] ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÎ°ÆÔøΩ
+echo.    [!] ç•¢•‡≠Î© ¢Î°Æ‡
 timeout /t 2 >nul
 goto :menu
 
@@ -91,23 +91,23 @@ cls
 echo.
 echo.    ***************************************************
 echo.    *                                                 *
-echo.    * ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩ RUST                         *
+echo.    * áÄèìëä áÄèêÖíÄ Ñãü RUST                         *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
-echo.    ÔøΩÔøΩ‚†≠ÔøΩÔøΩÔøΩÔøΩ WinDivert...
+echo.    é·‚†≠Æ¢™† WinDivert...
 echo.
 sc stop windivert
 sc stop windivert
 sc stop windivert
 echo.
-echo.    ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ WinDivert...
+echo.    ì§†´•≠®• WinDivert...
 echo.
 sc delete windivert
 sc delete windivert
 sc delete windivert
 echo.
-echo.    ÔøΩÔøΩÔøΩÔøΩ„ß™ÔøΩ ÔøΩÔøΩÔøΩ‰®£ÔøΩÔøΩÊ®©...
+echo.    á†£‡„ß™† ™Æ≠‰®£„‡†Ê®©...
 echo.
 call :load_files
 
@@ -119,7 +119,7 @@ if !SAVED_CHOICE! gtr 0 if !SAVED_CHOICE! leq !COUNT! set "VALID_CHOICE=1"
 
 if !VALID_CHOICE!==0 (
     echo.
-    echo.    [!] ÔøΩÔøΩÔøΩÁ†´ÔøΩ ÔøΩÎ°•ÔøΩÔøΩ ÔøΩÔøΩÔøΩ‰®£ÔøΩÔøΩÔøΩÔøΩ
+    echo.    [!] ë≠†Á†´† ¢Î°•‡®‚• ™Æ≠‰®£„‡†Ê®Ó
     echo.
     echo    ---------------------------------------------------
     set /p "NEW_CHOICE=    ^> "
@@ -128,7 +128,142 @@ if !VALID_CHOICE!==0 (
     if !NEW_CHOICE! gtr 0 if !NEW_CHOICE! leq !COUNT! set "VALID_CHOICE=1"
     if !VALID_CHOICE!==0 (
         echo.
-        echo.    [!] ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÎ°ÆÔøΩ!
+        echo.    [!] ç•¢•‡≠Î© ¢Î°Æ‡!
+        pause
+        goto :menu
+    )
+    echo !NEW_CHOICE!>"%CHOICE_FILE%"
+    set "SAVED_CHOICE=!NEW_CHOICE!"
+)
+
+set "SELECTED=!FILE_%SAVED_CHOICE%!"
+echo.
+echo.    á†Ø„·™: !SELECTED!
+echo.
+echo.    ***************************************************
+echo.
+call "!SELECTED!"
+exit
+
+:choose
+cls
+echo.
+echo.    ***************************************************
+echo.    *                                                 *
+echo.    * ÇõÅéê äéçîàÉìêÄñàà áÄèêÖíÄ                      *
+echo.    *                                                 *
+echo.    ***************************************************
+echo.
+echo.    é·‚†≠Æ¢™† WinDivert...
+sc stop windivert >nul 2>&1
+sc stop windivert >nul 2>&1
+sc stop windivert >nul 2>&1
+sc delete windivert >nul 2>&1
+sc delete windivert >nul 2>&1
+sc delete windivert >nul 2>&1
+echo.
+call :load_files
+
+if !COUNT!==0 (
+    echo.
+    echo.    [!] äÆ≠‰®£„‡†Ê®® ≠• ≠†©§•≠Î!
+    echo.
+    pause
+    goto :menu
+)
+
+echo.    ***************************************************
+echo.
+
+set "SAVED_CHOICE=0"
+if exist "%CHOICE_FILE%" set /p SAVED_CHOICE=<"%CHOICE_FILE%"
+if !SAVED_CHOICE! gtr 0 if !SAVED_CHOICE! leq !COUNT! (
+    set "SELECTED=!FILE_%SAVED_CHOICE%!"
+    echo.    í•™„È®©: !SELECTED!
+    echo.
+)
+echo    ---------------------------------------------------
+set /p "NEW_CHOICE=    ^> "
+echo    ---------------------------------------------------
+
+set "VALID_CHOICE=0"
+if !NEW_CHOICE! gtr 0 if !NEW_CHOICE! leq !COUNT! set "VALID_CHOICE=1"
+
+if !VALID_CHOICE!==0 (
+    echo.
+    echo.    [!] ç•¢•‡≠Î© ¢Î°Æ‡!
+    echo.
+    pause
+    goto :menu
+)
+
+set "SELECTED=!FILE_%NEW_CHOICE%!"
+echo !NEW_CHOICE!>"%CHOICE_FILE%"
+
+echo.
+echo.    ëÆÂ‡†≠•≠Æ: !SELECTED!
+echo.
+echo.    ***************************************************
+echo.
+pause
+goto :menu
+
+:update
+cls
+echo.
+echo.    ***************************************************
+echo.    *                                                 *
+echo.    * áÄÉêìáäÄ áÄèêÖíÄ                                *
+echo.    *                                                 *
+echo.    ***************************************************
+echo.
+call :check_update
+echo.
+echo.    ***************************************************
+echo.
+
+if not exist "%ZAPRET_DIR%" (
+    echo.
+    echo.    [!] éË®°™† „·‚†≠Æ¢™®!
+    pause
+    goto :menu
+)
+
+call :load_files
+
+if !COUNT!==0 (
+    echo.
+    echo.    [!] äÆ≠‰®£„‡†Ê®® ≠• ≠†©§•≠Î!
+    pause
+    goto :menu
+)
+
+echo.
+echo.    ***************************************************
+echo.
+echo.    ÇÎ°•‡®‚• ™Æ≠‰®£„‡†Ê®Ó ØÆ „¨Æ´Á†≠®Ó:
+echo.
+echo    ---------------------------------------------------
+set /p "NEW_CHOICE=    ^> "
+echo    ---------------------------------------------------
+
+set "VALID_CHOICE=0"
+if !NEW_CHOICE! gtr 0 if !NEW_CHOICE! leq !COUNT! set "VALID_CHOICE=1"
+
+if !VALID_CHOICE!==0 (
+    echo.
+    echo.    [!] ç•¢•‡≠Î© ¢Î°Æ‡!
+    pause
+    goto :menu
+)
+
+echo !NEW_CHOICE!>"%CHOICE_FILE%"
+set "SELECTED=!FILE_%NEW_CHOICE%!"
+echo.
+echo.    ëÆÂ‡†≠•≠Æ: !SELECTED!
+echo.
+echo.    ***************************************************
+echo.
 pause
 goto :menu
 
@@ -137,18 +272,18 @@ cls
 echo.
 echo.    ***************************************************
 echo.    *                                                 *
-echo.    * –ù–ê–°–¢–†–û–ô–ö–ê [zapret]                              *
+echo.    * çÄëíêéâäÄ [zapret]                              *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
 if not exist "%ZAPRET_DIR%\service.bat" (
     echo.
-    echo.    [!] service.bat –Ω–µ –Ω–∞–π–¥–µ–Ω!
+    echo.    [!] service.bat ≠• ≠†©§•≠!
     echo.
     pause
     goto :menu
 )
-echo.    –ó–∞–ø—É—Å–∫ service.bat...
+echo.    á†Ø„·™ service.bat...
 echo.
 echo.    ***************************************************
 echo.
@@ -164,7 +299,7 @@ cls
 echo.
 echo.    ***************************************************
 echo.    *                                                 *
-echo.    * –ò–ù–§–û–†–ú–ê–¶–ò–Ø                                      *
+echo.    * àçîéêåÄñàü                                      *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
@@ -174,41 +309,41 @@ echo.
 echo.
 echo.    ***************************************************
 echo.
-echo.    –í–ê–ñ–ù–û:
+echo.    ÇÄÜçé:
 echo.
 echo.
-echo.    –ó–∞–ø—É—Å–∫–∞—Ç—å –ø–µ—Ä–µ–¥ –æ—Ç–∫—Ä—ã—Ç–∏–µ–º –∏–≥—Ä—ã
-echo.
-echo.
-echo.    ***************************************************
-echo.
-echo.    –ü—Ä–æ–≥—Ä–∞–º–º–∞ –¥–ª—è:
-echo.
-echo.
-echo.    –ê–Ω—Ç–∏—á–∏—Ç Easy Anti-Cheat (EAC) –≤ Rust –±–ª–æ–∫–∏—Ä—É–µ—Ç –∏ –∑–∞–∫—Ä—ã–≤–∞–µ—Ç
-echo.    –ø—Ä–æ—Ü–µ—Å—Å winws.exe (Zapret), —Ç–∞–∫ –∫–∞–∫ —Å—á–∏—Ç–∞–µ—Ç –µ–≥–æ –º–µ—Ç–æ–¥
-echo.    –ø–µ—Ä–µ—Ö–≤–∞—Ç–∞ —Ç—Ä–∞—Ñ–∏–∫–∞ (–¥—Ä–∞–π–≤–µ—Ä WinDivert) —É—è–∑–≤–∏–º–æ—Å—Ç—å—é –∏–ª–∏ —á–∏—Ç–æ–º.
-echo.
-echo.
-echo.    –ê —ç—Ç–æ –ø—Ä–æ–≥—Ä–∞–º–º–∞ –ø–æ–º–æ–≥–∞–µ—Ç —ç—Ç–æ –æ–±—Ö–æ–¥–∏—Ç—å.
+echo.    á†Ø„·™†‚Ï Ø•‡•§ Æ‚™‡Î‚®•¨ ®£‡Î
 echo.
 echo.
 echo.    ***************************************************
 echo.
-echo.    –ê–≤—Ç–æ—Ä: Gancik
+echo.    è‡Æ£‡†¨¨† §´Ô:
+echo.
+echo.
+echo.    Ä≠‚®Á®‚ Easy Anti-Cheat (EAC) ¢ Rust °´Æ™®‡„•‚ ® ß†™‡Î¢†•‚
+echo.    Ø‡ÆÊ•·· winws.exe (Zapret), ‚†™ ™†™ ·Á®‚†•‚ •£Æ ¨•‚Æ§
+echo.    Ø•‡•Â¢†‚† ‚‡†‰®™† (§‡†©¢•‡ WinDivert) „Ôß¢®¨Æ·‚ÏÓ ®´® Á®‚Æ¨.
+echo.
+echo.
+echo.    Ä Ì‚Æ Ø‡Æ£‡†¨¨† ØÆ¨Æ£†•‚ Ì‚Æ Æ°ÂÆ§®‚Ï.
+echo.
 echo.
 echo.    ***************************************************
 echo.
-echo.    –¢—Ä–µ–±–æ–≤–∞–Ω–∏—è:
+echo.    Ä¢‚Æ‡: Gancik
+echo.
+echo.    ***************************************************
+echo.
+echo.    í‡•°Æ¢†≠®Ô:
 echo.
 echo.
-echo.      - –ü—Ä–∞–≤–∞ –∞–¥–º–∏–Ω–∏—Å—Ç—Ä–∞—Ç–æ—Ä–∞
-echo.      - –ò–Ω—Ç–µ—Ä–Ω–µ—Ç –¥–ª—è –æ–±–Ω–æ–≤–ª–µ–Ω–∏–π
+echo.      - è‡†¢† †§¨®≠®·‚‡†‚Æ‡†
+echo.      - à≠‚•‡≠•‚ §´Ô Æ°≠Æ¢´•≠®©
 echo.
 echo.
 echo.    ***************************************************
 echo.
-echo.    –ò—Å—Ö–æ–¥–Ω—ã–π –ø—Ä–æ–µ–∫—Ç:
+echo.    à·ÂÆ§≠Î© Ø‡Æ•™‚:
 echo.    Flowseal/zapret-discord-youtube
 echo.    https://github.com/Flowseal/zapret-discord-youtube
 echo.
@@ -224,9 +359,9 @@ echo.
 echo.
 echo.    ***************************************************
 echo.    *                                                 *
-echo.    * –î–æ –Ω–æ–≤—ã—Ö –≤—Å—Ç—Ä–µ—á!                                *
+echo.    * ÑÆ ≠Æ¢ÎÂ ¢·‚‡•Á!                                *
 echo.    *                                                 *
-echo.    * –£–¥–∞—á–Ω–æ–π –∏–≥—Ä—ã –≤ Rust!                             *
+echo.    * ì§†Á≠Æ© ®£‡Î ¢ Rust!                             *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
@@ -251,33 +386,33 @@ if !COUNT!==0 (
 goto :eof
 
 :check_update
-echo.    –ü—Ä–æ–≤–µ—Ä–∫–∞ –æ–±–Ω–æ–≤–ª–µ–Ω–∏–π...
+echo.    è‡Æ¢•‡™† Æ°≠Æ¢´•≠®©...
 echo.
 set "NEW_VERSION="
 for /f "delims=" %%i in ('powershell -Command "(Invoke-WebRequest -Uri 'https://api.github.com/repos/%REPO%/releases/latest' -UseBasicParsing).Content ^| ConvertFrom-Json ^| Select-Object -ExpandProperty tag_name"') do set "NEW_VERSION=%%i"
 if "!NEW_VERSION!"=="" (
-    echo.    [!] –ù–µ —É–¥–∞–ª–æ—Å—å –ø—Ä–æ–≤–µ—Ä–∏—Ç—å –æ–±–Ω–æ–≤–ª–µ–Ω–∏—è
+    echo.    [!] ç• „§†´Æ·Ï Ø‡Æ¢•‡®‚Ï Æ°≠Æ¢´•≠®Ô
     goto :eof
 )
 set "CURRENT_VERSION="
 if exist "%VERSION_FILE%" set /p CURRENT_VERSION=<"%VERSION_FILE%"
 if "!CURRENT_VERSION!"=="!NEW_VERSION!" (
-    echo.    [OK] –ê–∫—Ç—É–∞–ª—å–Ω–∞—è –≤–µ—Ä—Å–∏—è !NEW_VERSION!
+    echo.    [OK] Ä™‚„†´Ï≠†Ô ¢•‡·®Ô !NEW_VERSION!
     goto :eof
 )
-echo.    –î–æ—Å—Ç—É–ø–Ω–æ –æ–±–Ω–æ–≤–ª–µ–Ω–∏–µ: !NEW_VERSION!
+echo.    ÑÆ·‚„Ø≠Æ Æ°≠Æ¢´•≠®•: !NEW_VERSION!
 echo.
-echo.    –°–∫–∞—á–∏–≤–∞–Ω–∏–µ...
+echo.    ë™†Á®¢†≠®•...
 echo.
 if exist "%ZAPRET_DIR%" rmdir /s /q "%ZAPRET_DIR%"
 set "ZIP_FILE=%~dp0zapret.zip"
 powershell -Command "$r=(Invoke-WebRequest -Uri 'https://api.github.com/repos/%REPO%/releases/latest' -UseBasicParsing).Content|ConvertFrom-Json;$a=$r.assets|Where-Object{$_.name -like '*.zip'}|Select-Object -First 1;if($a){Invoke-WebRequest -Uri $a.browser_download_url -OutFile '%ZIP_FILE%'}else{exit 1}"
 if %errorlevel% neq 0 (
     echo.
-    echo.    [!] –û—à–∏–±–∫–∞ —Å–∫–∞—á–∏–≤–∞–Ω–∏—è!
+    echo.    [!] éË®°™† ·™†Á®¢†≠®Ô!
     goto :eof
 )
-echo.    –†–∞—Å–ø–∞–∫–æ–≤–∫–∞...
+echo.    ê†·Ø†™Æ¢™†...
 powershell -Command "Expand-Archive -Path '%ZIP_FILE%' -DestinationPath '%~dp0' -Force"
 del "%ZIP_FILE%" 2>nul
 for /d %%d in ("%~dp0zapret-discord-youtube*") do (
@@ -285,140 +420,5 @@ for /d %%d in ("%~dp0zapret-discord-youtube*") do (
 )
 echo !NEW_VERSION!>"%VERSION_FILE%"
 echo.
-echo.    [OK] –û–±–Ω–æ–≤–ª–µ–Ω–æ –¥–æ –≤–µ—Ä—Å–∏–∏ !NEW_VERSION!
+echo.    [OK] é°≠Æ¢´•≠Æ §Æ ¢•‡·®® !NEW_VERSION!
 goto :eof
-    )
-    echo !NEW_CHOICE!>"%CHOICE_FILE%"
-    set "SAVED_CHOICE=!NEW_CHOICE!"
-)
-
-set "SELECTED=!FILE_%SAVED_CHOICE%!"
-echo.
-echo.    ÔøΩÔøΩÔøΩÔøΩÔøΩ: !SELECTED!
-echo.
-echo.    ***************************************************
-echo.
-call "!SELECTED!"
-exit
-
-:choose
-cls
-echo.
-echo.    ***************************************************
-echo.    *                                                 *
-echo.    * ÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ                      *
-echo.    *                                                 *
-echo.    ***************************************************
-echo.
-echo.    ÔøΩÔøΩ‚†≠ÔøΩÔøΩÔøΩÔøΩ WinDivert...
-sc stop windivert >nul 2>&1
-sc stop windivert >nul 2>&1
-sc stop windivert >nul 2>&1
-sc delete windivert >nul 2>&1
-sc delete windivert >nul 2>&1
-sc delete windivert >nul 2>&1
-echo.
-call :load_files
-
-if !COUNT!==0 (
-    echo.
-    echo.    [!] ÔøΩÔøΩÔøΩ‰®£ÔøΩÔøΩÊ®® ÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ!
-    echo.
-    pause
-    goto :menu
-)
-
-echo.    ***************************************************
-echo.
-
-set "SAVED_CHOICE=0"
-if exist "%CHOICE_FILE%" set /p SAVED_CHOICE=<"%CHOICE_FILE%"
-if !SAVED_CHOICE! gtr 0 if !SAVED_CHOICE! leq !COUNT! (
-    set "SELECTED=!FILE_%SAVED_CHOICE%!"
-    echo.    ÔøΩÔøΩÔøΩÔøΩÈ®©: !SELECTED!
-    echo.
-)
-echo    ---------------------------------------------------
-set /p "NEW_CHOICE=    ^> "
-echo    ---------------------------------------------------
-
-set "VALID_CHOICE=0"
-if !NEW_CHOICE! gtr 0 if !NEW_CHOICE! leq !COUNT! set "VALID_CHOICE=1"
-
-if !VALID_CHOICE!==0 (
-    echo.
-    echo.    [!] ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÎ°ÆÔøΩ!
-    echo.
-    pause
-    goto :menu
-)
-
-set "SELECTED=!FILE_%NEW_CHOICE%!"
-echo !NEW_CHOICE!>"%CHOICE_FILE%"
-
-echo.
-echo.    ÔøΩÔøΩÔøΩ‡†≠ÔøΩÔøΩÔøΩ: !SELECTED!
-echo.
-echo.    ***************************************************
-echo.
-pause
-goto :menu
-
-:update
-cls
-echo.
-echo.    ***************************************************
-echo.    *                                                 *
-echo.    * ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ                                *
-echo.    *                                                 *
-echo.    ***************************************************
-echo.
-call :check_update
-echo.
-echo.    ***************************************************
-echo.
-
-if not exist "%ZAPRET_DIR%" (
-    echo.
-    echo.    [!] ÔøΩË®°ÔøΩÔøΩ ÔøΩÔøΩ‚†≠ÔøΩÔøΩÔøΩÔøΩ!
-    pause
-    goto :menu
-)
-
-call :load_files
-
-if !COUNT!==0 (
-    echo.
-    echo.    [!] ÔøΩÔøΩÔøΩ‰®£ÔøΩÔøΩÊ®® ÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ!
-    pause
-    goto :menu
-)
-
-echo.
-echo.    ***************************************************
-echo.
-echo.    ÔøΩÎ°•ÔøΩÔøΩ ÔøΩÔøΩÔøΩ‰®£ÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ „¨ÆÔøΩÁ†≠ÔøΩÔøΩ:
-echo.
-echo    ---------------------------------------------------
-set /p "NEW_CHOICE=    ^> "
-echo    ---------------------------------------------------
-
-set "VALID_CHOICE=0"
-if !NEW_CHOICE! gtr 0 if !NEW_CHOICE! leq !COUNT! set "VALID_CHOICE=1"
-
-if !VALID_CHOICE!==0 (
-    echo.
-    echo.    [!] ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÎ°ÆÔøΩ!
-    pause
-    goto :menu
-)
-
-echo !NEW_CHOICE!>"%CHOICE_FILE%"
-set "SELECTED=!FILE_%NEW_CHOICE%!"
-echo.
-echo.    ÔøΩÔøΩÔøΩ‡†≠ÔøΩÔøΩÔøΩ: !SELECTED!
-echo.
-echo.    ***************************************************
-echo.
-pause
-goto :menu
