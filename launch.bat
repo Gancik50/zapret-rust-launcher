@@ -1,5 +1,5 @@
 @echo off
-chcp 866 >nul
+chcp 65001 >nul
 setlocal enabledelayedexpansion
 
 set "REPO=Flowseal/zapret-discord-youtube"
@@ -36,13 +36,13 @@ if "!HAS_ZAPRET!"=="0" (
     set "CURRENT_GEN="
 )
 
-set "L1=  [1]  Запустить запрет"
-if defined CURRENT_GEN set "L1=  [1]  Запустить [!CURRENT_GEN!]"
+set "L1=  [1]  я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜"
+if defined CURRENT_GEN set "L1=  [1]  я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ [!CURRENT_GEN!]"
 set "L1= !L1!                                                 "
 set "L1=!L1:~0,49!"
 
-set "L4=  [4]  Обновить запрет"
-if "!HAS_ZAPRET!"=="0" set "L4=  [4]  Установить запрет"
+set "L4=  [4]  я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜"
+if "!HAS_ZAPRET!"=="0" set "L4=  [4]  я┐╜я┐╜таня┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜"
 set "L4= !L4!                                                 "
 set "L4=!L4:~0,49!"
 
@@ -56,17 +56,17 @@ echo.    ***************************************************
 echo.    *                                                 *
 echo.    *!L1!*
 echo.    *                                                 *
-echo.    *   [2]  Выбрать конфигурацию                     *
+echo.    *   [2]  я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜фигя┐╜я┐╜я┐╜я┐╜                     *
 echo.    *                                                 *
-echo.    *   [3]  Настроить [zapret]                        *
+echo.    *   [3]  я┐╜я┐╜я┐╜я┐╜роия┐╜я┐╜ [zapret]                        *
 echo.    *                                                 *
 echo.    *!L4!*
 echo.    *                                                 *
-echo.    *   [5]  Информация                               *
+echo.    *   [5]  я┐╜я┐╜я┐╜рмая┐╜я┐╜                               *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.    *                                                 *
-echo.    *   [0]  Выйти                                    *
+echo.    *   [0]  я┐╜я┐╜я┐╜                                    *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
@@ -82,7 +82,7 @@ if "%MENU_CHOICE%"=="4" goto :update
 if "%MENU_CHOICE%"=="5" goto :info
 if "%MENU_CHOICE%"=="0" goto :exit
 echo    ---------------------------------------------------
-echo.    [!] Неверный выбор
+echo.    [!] я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜ыбоя┐╜
 timeout /t 2 >nul
 goto :menu
 
@@ -91,29 +91,11 @@ cls
 echo.
 echo.    ***************************************************
 echo.    *                                                 *
-echo.    * ЗАПУСК ЗАПРЕТА ДЛЯ RUST                         *
+echo.    * я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜ RUST                         *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
-echo.    Остановка WinDivert...
-echo.
-sc stop windivert
-sc stop windivert
-sc stop windivert
-echo.
-echo.    [OK] WinDivert остановлен
-echo.
-timeout /t 2 >nul
-echo.    Удаление WinDivert...
-echo.
-sc delete windivert
-sc delete windivert
-sc delete windivert
-echo.
-echo.    [OK] WinDivert удалён
-echo.
-timeout /t 2 >nul
-echo.    Загрузка конфигураций...
+echo.    я┐╜я┐╜я┐╜я┐╜узкя┐╜ я┐╜я┐╜я┐╜фигя┐╜я┐╜ций...
 echo.
 call :load_files
 
@@ -125,7 +107,7 @@ if !SAVED_CHOICE! gtr 0 if !SAVED_CHOICE! leq !COUNT! set "VALID_CHOICE=1"
 
 if !VALID_CHOICE!==0 (
     echo.
-    echo.    [!] Сначала выберите конфигурацию
+    echo.    [!] я┐╜я┐╜я┐╜чаля┐╜ я┐╜ыбея┐╜я┐╜ я┐╜я┐╜я┐╜фигя┐╜я┐╜я┐╜я┐╜
     echo.
     echo    ---------------------------------------------------
     set /p "NEW_CHOICE=    ^> "
@@ -134,7 +116,7 @@ if !VALID_CHOICE!==0 (
     if !NEW_CHOICE! gtr 0 if !NEW_CHOICE! leq !COUNT! set "VALID_CHOICE=1"
     if !VALID_CHOICE!==0 (
         echo.
-        echo.    [!] Неверный выбор!
+        echo.    [!] я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜ыбоя┐╜!
         pause
         goto :menu
     )
@@ -144,11 +126,28 @@ if !VALID_CHOICE!==0 (
 
 set "SELECTED=!FILE_%SAVED_CHOICE%!"
 echo.
-echo.    Запуск: !SELECTED!
+echo.    я┐╜я┐╜я┐╜я┐╜я┐╜: !SELECTED!
 echo.
 echo.    ***************************************************
 echo.
-call "!SELECTED!"
+start "" "!SELECTED!"
+timeout /t 5 >nul
+echo.    я┐╜я┐╜таня┐╜я┐╜я┐╜я┐╜ WinDivert...
+echo.
+sc stop windivert
+sc stop windivert
+sc stop windivert
+echo.
+echo.    [OK] WinDivert я┐╜я┐╜таня┐╜я┐╜я┐╜я┐╜я┐╜
+echo.
+echo.    я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ WinDivert...
+echo.
+sc delete windivert
+sc delete windivert
+sc delete windivert
+echo.
+echo.    [OK] WinDivert удая┐╜я┐╜
+echo.
 exit
 
 :choose
@@ -156,11 +155,11 @@ cls
 echo.
 echo.    ***************************************************
 echo.    *                                                 *
-echo.    * ВЫБОР КОНФИГУРАЦИИ ЗАПРЕТА                      *
+echo.    * я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜                      *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
-echo.    Остановка WinDivert...
+echo.    я┐╜я┐╜таня┐╜я┐╜я┐╜я┐╜ WinDivert...
 sc stop windivert >nul 2>&1
 sc stop windivert >nul 2>&1
 sc stop windivert >nul 2>&1
@@ -172,7 +171,7 @@ call :load_files
 
 if !COUNT!==0 (
     echo.
-    echo.    [!] Конфигурации не найдены!
+    echo.    [!] я┐╜я┐╜я┐╜фигя┐╜я┐╜ции я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜!
     echo.
     pause
     goto :menu
@@ -185,7 +184,7 @@ set "SAVED_CHOICE=0"
 if exist "%CHOICE_FILE%" set /p SAVED_CHOICE=<"%CHOICE_FILE%"
 if !SAVED_CHOICE! gtr 0 if !SAVED_CHOICE! leq !COUNT! (
     set "SELECTED=!FILE_%SAVED_CHOICE%!"
-    echo.    Текущий: !SELECTED!
+    echo.    я┐╜я┐╜я┐╜я┐╜щий: !SELECTED!
     echo.
 )
 echo    ---------------------------------------------------
@@ -197,7 +196,7 @@ if !NEW_CHOICE! gtr 0 if !NEW_CHOICE! leq !COUNT! set "VALID_CHOICE=1"
 
 if !VALID_CHOICE!==0 (
     echo.
-    echo.    [!] Неверный выбор!
+    echo.    [!] я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜ыбоя┐╜!
     echo.
     pause
     goto :menu
@@ -207,7 +206,7 @@ set "SELECTED=!FILE_%NEW_CHOICE%!"
 echo !NEW_CHOICE!>"%CHOICE_FILE%"
 
 echo.
-echo.    Сохранено: !SELECTED!
+echo.    я┐╜я┐╜я┐╜раня┐╜я┐╜я┐╜: !SELECTED!
 echo.
 echo.    ***************************************************
 echo.
@@ -219,7 +218,7 @@ cls
 echo.
 echo.    ***************************************************
 echo.    *                                                 *
-echo.    * ЗАГРУЗКА ЗАПРЕТА                                *
+echo.    * я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜                                *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
@@ -230,7 +229,7 @@ echo.
 
 if not exist "%ZAPRET_DIR%" (
     echo.
-    echo.    [!] Ошибка установки!
+    echo.    [!] я┐╜шибя┐╜я┐╜ я┐╜я┐╜таня┐╜я┐╜я┐╜я┐╜!
     pause
     goto :menu
 )
@@ -239,7 +238,7 @@ call :load_files
 
 if !COUNT!==0 (
     echo.
-    echo.    [!] Конфигурации не найдены!
+    echo.    [!] я┐╜я┐╜я┐╜фигя┐╜я┐╜ции я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜!
     pause
     goto :menu
 )
@@ -247,7 +246,7 @@ if !COUNT!==0 (
 echo.
 echo.    ***************************************************
 echo.
-echo.    Выберите конфигурацию по умолчанию:
+echo.    я┐╜ыбея┐╜я┐╜ я┐╜я┐╜я┐╜фигя┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜ умоя┐╜чаня┐╜я┐╜:
 echo.
 echo    ---------------------------------------------------
 set /p "NEW_CHOICE=    ^> "
@@ -258,7 +257,7 @@ if !NEW_CHOICE! gtr 0 if !NEW_CHOICE! leq !COUNT! set "VALID_CHOICE=1"
 
 if !VALID_CHOICE!==0 (
     echo.
-    echo.    [!] Неверный выбор!
+    echo.    [!] я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜ыбоя┐╜!
     pause
     goto :menu
 )
@@ -266,7 +265,7 @@ if !VALID_CHOICE!==0 (
 echo !NEW_CHOICE!>"%CHOICE_FILE%"
 set "SELECTED=!FILE_%NEW_CHOICE%!"
 echo.
-echo.    Сохранено: !SELECTED!
+echo.    я┐╜я┐╜я┐╜раня┐╜я┐╜я┐╜: !SELECTED!
 echo.
 echo.    ***************************************************
 echo.
@@ -278,18 +277,18 @@ cls
 echo.
 echo.    ***************************************************
 echo.    *                                                 *
-echo.    * НАСТРОЙКА [zapret]                              *
+echo.    * я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ [zapret]                              *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
 if not exist "%ZAPRET_DIR%\service.bat" (
     echo.
-    echo.    [!] service.bat не найден!
+    echo.    [!] service.bat я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜!
     echo.
     pause
     goto :menu
 )
-echo.    Запуск service.bat...
+echo.    я┐╜я┐╜я┐╜я┐╜я┐╜ service.bat...
 echo.
 echo.    ***************************************************
 echo.
@@ -305,7 +304,7 @@ cls
 echo.
 echo.    ***************************************************
 echo.    *                                                 *
-echo.    * ИНФОРМАЦИЯ                                      *
+echo.    * я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜                                      *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
@@ -315,41 +314,41 @@ echo.
 echo.
 echo.    ***************************************************
 echo.
-echo.    ВАЖНО:
+echo.    я┐╜я┐╜я┐╜я┐╜я┐╜:
 echo.
 echo.
-echo.    Запускать перед открытием игры
-echo.
-echo.
-echo.    ***************************************************
-echo.
-echo.    Программа для:
-echo.
-echo.
-echo.    Античит Easy Anti-Cheat (EAC) в Rust блокирует и закрывает
-echo.    процесс winws.exe (Zapret), так как считает его метод
-echo.    перехвата трафика (драйвер WinDivert) уязвимостью или читом.
-echo.
-echo.
-echo.    А это программа помогает это обходить.
+echo.    я┐╜я┐╜я┐╜я┐╜ская┐╜я┐╜ я┐╜я┐╜ред я┐╜я┐╜я┐╜я┐╜тиея┐╜ я┐╜я┐╜я┐╜я┐╜
 echo.
 echo.
 echo.    ***************************************************
 echo.
-echo.    Автор: Gancik
+echo.    я┐╜рограмя┐╜я┐╜ я┐╜я┐╜я┐╜:
+echo.
+echo.
+echo.    я┐╜я┐╜я┐╜я┐╜я┐╜ Easy Anti-Cheat (EAC) я┐╜ Rust я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜ я┐╜я┐╜я┐╜я┐╜ывая┐╜я┐╜
+echo.    я┐╜я┐╜я┐╜я┐╜я┐╜ winws.exe (Zapret), так я┐╜я┐╜я┐╜ я┐╜я┐╜таея┐╜ я┐╜я┐╜я┐╜ я┐╜я┐╜тод
+echo.    я┐╜я┐╜я┐╜хвая┐╜ я┐╜я┐╜фикя┐╜ (я┐╜райя┐╜я┐╜я┐╜ WinDivert) я┐╜язвя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜ я┐╜том.
+echo.
+echo.
+echo.    я┐╜ я┐╜я┐╜ я┐╜рограмя┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜ я┐╜я┐╜ходя┐╜я┐╜я┐╜.
+echo.
 echo.
 echo.    ***************************************************
 echo.
-echo.    Требования:
+echo.    я┐╜я┐╜я┐╜я┐╜: Gancik
+echo.
+echo.    ***************************************************
+echo.
+echo.    я┐╜ребя┐╜я┐╜я┐╜я┐╜я┐╜я┐╜:
 echo.
 echo.
-echo.      - Права администратора
-echo.      - Интернет для обновлений
+echo.      - я┐╜равя┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜
+echo.      - я┐╜я┐╜я┐╜рнея┐╜ я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜
 echo.
 echo.
 echo.    ***************************************************
 echo.
-echo.    Исходный проект:
+echo.    я┐╜я┐╜ходя┐╜я┐╜ я┐╜роея┐╜я┐╜:
 echo.    Flowseal/zapret-discord-youtube
 echo.    https://github.com/Flowseal/zapret-discord-youtube
 echo.
@@ -365,9 +364,9 @@ echo.
 echo.
 echo.    ***************************************************
 echo.    *                                                 *
-echo.    * До новых встреч!                                *
+echo.    * я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜!                                *
 echo.    *                                                 *
-echo.    * Удачной игры в Rust!                             *
+echo.    * я┐╜я┐╜я┐╜чноя┐╜ я┐╜я┐╜я┐╜я┐╜ я┐╜ Rust!                             *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
@@ -392,33 +391,33 @@ if !COUNT!==0 (
 goto :eof
 
 :check_update
-echo.    Проверка обновлений...
+echo.    я┐╜ровя┐╜рка я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜...
 echo.
 set "NEW_VERSION="
 for /f "delims=" %%i in ('powershell -Command "(Invoke-WebRequest -Uri 'https://api.github.com/repos/%REPO%/releases/latest' -UseBasicParsing).Content ^| ConvertFrom-Json ^| Select-Object -ExpandProperty tag_name"') do set "NEW_VERSION=%%i"
 if "!NEW_VERSION!"=="" (
-    echo.    [!] Не удалось проверить обновления
+    echo.    [!] я┐╜я┐╜ удая┐╜я┐╜я┐╜я┐╜ я┐╜ровя┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜
     goto :eof
 )
 set "CURRENT_VERSION="
 if exist "%VERSION_FILE%" set /p CURRENT_VERSION=<"%VERSION_FILE%"
 if "!CURRENT_VERSION!"=="!NEW_VERSION!" (
-    echo.    [OK] Актуальная версия !NEW_VERSION!
+    echo.    [OK] я┐╜я┐╜я┐╜уальная┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜ !NEW_VERSION!
     goto :eof
 )
-echo.    Доступно обновление: !NEW_VERSION!
+echo.    я┐╜я┐╜я┐╜я┐╜упня┐╜ я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜: !NEW_VERSION!
 echo.
-echo.    Скачивание...
+echo.    я┐╜я┐╜я┐╜чивя┐╜я┐╜я┐╜я┐╜...
 echo.
 if exist "%ZAPRET_DIR%" rmdir /s /q "%ZAPRET_DIR%"
 set "ZIP_FILE=%~dp0zapret.zip"
 powershell -Command "$r=(Invoke-WebRequest -Uri 'https://api.github.com/repos/%REPO%/releases/latest' -UseBasicParsing).Content|ConvertFrom-Json;$a=$r.assets|Where-Object{$_.name -like '*.zip'}|Select-Object -First 1;if($a){Invoke-WebRequest -Uri $a.browser_download_url -OutFile '%ZIP_FILE%'}else{exit 1}"
 if %errorlevel% neq 0 (
     echo.
-    echo.    [!] Ошибка скачивания!
+    echo.    [!] я┐╜шибя┐╜я┐╜ скачивя┐╜я┐╜я┐╜я┐╜!
     goto :eof
 )
-echo.    Распаковка...
+echo.    я┐╜я┐╜спая┐╜я┐╜я┐╜я┐╜я┐╜...
 powershell -Command "Expand-Archive -Path '%ZIP_FILE%' -DestinationPath '%~dp0' -Force"
 del "%ZIP_FILE%" 2>nul
 for /d %%d in ("%~dp0zapret-discord-youtube*") do (
@@ -426,5 +425,5 @@ for /d %%d in ("%~dp0zapret-discord-youtube*") do (
 )
 echo !NEW_VERSION!>"%VERSION_FILE%"
 echo.
-echo.    [OK] Обновлено до версии !NEW_VERSION!
+echo.    [OK] я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜я┐╜ я┐╜я┐╜ я┐╜я┐╜я┐╜сии !NEW_VERSION!
 goto :eof
