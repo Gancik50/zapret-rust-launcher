@@ -130,9 +130,12 @@ echo.    Запуск: !SELECTED!
 echo.
 echo.    ***************************************************
 echo.
-start /min "" "!SELECTED!"
+echo.    [1/4] Запуск zapret...
+powershell -Command "Start-Process -FilePath '!SELECTED!' -WindowStyle Hidden"
 timeout /t 5 >nul
-echo.    Остановка WinDivert...
+echo.    [OK] Zapret запущен (скрыт)
+echo.
+echo.    [2/4] Остановка WinDivert...
 echo.
 sc stop windivert
 sc stop windivert
@@ -140,13 +143,17 @@ sc stop windivert
 echo.
 echo.    [OK] WinDivert остановлен
 echo.
-echo.    Удаление WinDivert...
+echo.    [3/4] Удаление WinDivert...
 echo.
 sc delete windivert
 sc delete windivert
 sc delete windivert
 echo.
 echo.    [OK] WinDivert удалён
+echo.
+echo.    [4/4] Готово! Можно запускать Rust
+echo.
+echo.    ***************************************************
 echo.
 exit
 
