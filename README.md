@@ -2,6 +2,8 @@
 
 Автоматический лаунчер для **zapret-discord-youtube** с поддержкой игры в **Rust**.
 
+![Demo](demo.gif)
+
 ## Проблема
 
 Античит Rust блокирует WinDivert драйвер, который использует zapret для разблокировки Discord/YouTube. При запуске игры через обычный zapret — он закрывается.
@@ -17,9 +19,9 @@
 
 Запускайте перед запуском Rust
 
-Нельзя в service.bat  выбирать  1. Install Service и если у вас в оргинальном Zapret устоновлен Install Service то удалите Install Service
+Нельзя в service.bat выбирать 1. Install Service и если у вас в оргинальном Zapret устоновлен Install Service то удалите Install Service
 
-Если что не работает попробуйте  полазить настройках Zapret
+Если что не работает попробуйте полазить настройках Zapret
 
 И кроме github не где нету.
 
