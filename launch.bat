@@ -81,10 +81,10 @@ if "%MENU_CHOICE%"=="3" goto :settings
 if "%MENU_CHOICE%"=="4" goto :update
 if "%MENU_CHOICE%"=="5" goto :info
 if "%MENU_CHOICE%"=="0" goto :exit
-echo.    *   [!] Неверный выбор                            *
+echo    ---------------------------------------------------
+echo.    [!] Nevernyy vybor
 timeout /t 2 >nul
 goto :menu
-
 :run
 cls
 echo.
@@ -94,7 +94,20 @@ echo.    * ЗАПУСК ЗАПРЕТА ДЛЯ RUST                         *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
-call :stop_windivert
+echo.    Остановка WinDivert...
+echo.
+sc stop windivert
+sc stop windivert
+sc stop windivert
+echo.
+echo.    Удаление WinDivert...
+echo.
+sc delete windivert
+sc delete windivert
+sc delete windivert
+echo.
+echo.    Загрузка конфигураций...
+echo.
 call :load_files
 
 set "SAVED_CHOICE=0"
@@ -129,8 +142,7 @@ echo.
 echo.    ***************************************************
 echo.
 call "!SELECTED!"
-pause
-goto :menu
+exit
 
 :choose
 cls
@@ -141,7 +153,14 @@ echo.    * ВЫБОР КОНФИГУРАЦИИ ЗАПРЕТА                      *
 echo.    *                                                 *
 echo.    ***************************************************
 echo.
-call :stop_windivert
+echo.    Остановка WinDivert...
+sc stop windivert >nul 2>&1
+sc stop windivert >nul 2>&1
+sc stop windivert >nul 2>&1
+sc delete windivert >nul 2>&1
+sc delete windivert >nul 2>&1
+sc delete windivert >nul 2>&1
+echo.
 call :load_files
 
 if !COUNT!==0 (
@@ -185,7 +204,6 @@ echo.    Сохранено: !SELECTED!
 echo.
 echo.    ***************************************************
 echo.
-call "!SELECTED!"
 pause
 goto :menu
 
@@ -245,13 +263,6 @@ echo.    Сохранено: !SELECTED!
 echo.
 echo.    ***************************************************
 echo.
-
-echo.
-echo.    ---------------------------------------------------
-echo.    ВАЖНО: Теперь откройте [3] Настроить [zapret]
-echo.    и выберите "Update IPSet List" для установки WireSock
-echo.    ---------------------------------------------------
-echo.
 pause
 goto :menu
 
@@ -300,8 +311,7 @@ echo.
 echo.    ВАЖНО:
 echo.
 echo.
-echo.    Запускать перед открытием игры.
-echo.    После установки настройте WireSock через service.bat
+echo.    Запускать перед открытием игры
 echo.
 echo.
 echo.    ***************************************************
@@ -314,8 +324,7 @@ echo.    процесс winws.exe (Zapret), так как считает его метод
 echo.    перехвата трафика (драйвер WinDivert) уязвимостью или читом.
 echo.
 echo.
-echo.    Решение: WireSock вместо WinDivert.
-echo.    Откройте [3] Настроить и выберите "Update IPSet List"
+echo.    А это программа помогает это обходить.
 echo.
 echo.
 echo.    ***************************************************
@@ -396,7 +405,7 @@ echo.    Скачивание...
 echo.
 if exist "%ZAPRET_DIR%" rmdir /s /q "%ZAPRET_DIR%"
 set "ZIP_FILE=%~dp0zapret.zip"
-powershell -Command "$r=(Invoke-WebRequest -Uri 'https://api.github.com/repos/%REPO%/releases/latest' -UseBasicParsing).Content|ConvertFrom-Json;$a=$r.assets|Where-Object{$_.name -like '*.zip'}|Select-Object -First 1;if($a){Invoke-WebRequest -Uri $a.browser_download_url -OutFile '%ZIP_FILE%'}else{exit 1}"
+powershell -Command "=(Invoke-WebRequest -Uri 'https://api.github.com/repos/%REPO%/releases/latest' -UseBasicParsing).Content|ConvertFrom-Json;=.assets|Where-Object{.name -like '*.zip'}|Select-Object -First 1;if(){Invoke-WebRequest -Uri .browser_download_url -OutFile '%ZIP_FILE%'}else{exit 1}"
 if %errorlevel% neq 0 (
     echo.
     echo.    [!] Ошибка скачивания!
@@ -411,13 +420,4 @@ for /d %%d in ("%~dp0zapret-discord-youtube*") do (
 echo !NEW_VERSION!>"%VERSION_FILE%"
 echo.
 echo.    [OK] Обновлено до версии !NEW_VERSION!
-goto :eof
-
-:stop_windivert
-sc stop windivert >nul 2>&1
-sc stop windivert >nul 2>&1
-sc stop windivert >nul 2>&1
-sc delete windivert >nul 2>&1
-sc delete windivert >nul 2>&1
-sc delete windivert >nul 2>&1
 goto :eof
